@@ -1,0 +1,12 @@
+{
+    "name": "margo/test-php",
+    "authors": [
+        {
+            "name": "MargaritaDidukh",
+            "email": "margartadidukh16@gmail.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "^3.6"
+    }
+}
