@@ -1,0 +1,12 @@
+{
+    "name": "alex/untitled",
+    "authors": [
+        {
+            "name": "zabara.alex",
+            "email": "zabara.industry@gmail.com"
+        }
+    ],
+    "require": {
+        "squizlabs/php_codesniffer": "^3.6"
+    }
+}
