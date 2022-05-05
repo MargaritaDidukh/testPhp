@@ -1,4 +1,4 @@
-<form method="post" action="form.php">
+ <form method="post" action="form.php">
   <label for="name">Name:</label>
   <input type="text" name="name">
   <br>

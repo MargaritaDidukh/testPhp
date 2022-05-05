@@ -7,8 +7,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if (empty($_POST['name']) || empty($_POST['review'])) {
     echo 'name and review are required';
 } else {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $review = mysqli_real_escape_string($conn, $_POST['review']);
+    $name = mysqli_real_escape_string($conn, htmlspecialchars($_POST['name']));
+    $review = mysqli_real_escape_string($conn, htmlspecialchars($_POST['review']));
     $sql = "INSERT INTO review (name,review) VALUES ('$name','$review')";
     if ($conn->query($sql) === true) {
         echo 'Record Added Sucessfully';
