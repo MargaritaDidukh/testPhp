@@ -320,3 +320,26 @@
 2022-05-02 18:06:33,537 INFO success: postfixd entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
 2022-05-02 18:06:33,537 INFO success: sshd entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
 2022-05-02 18:06:34,491 INFO success: syslogd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+2022-05-05 10:36:28,947 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2022-05-05 10:36:28,952 INFO Included extra file "/opt/docker/etc/supervisor.d/apache.conf" during parsing
+2022-05-05 10:36:28,953 INFO Included extra file "/opt/docker/etc/supervisor.d/blackfire-agent.conf" during parsing
+2022-05-05 10:36:28,954 INFO Included extra file "/opt/docker/etc/supervisor.d/cron.conf" during parsing
+2022-05-05 10:36:28,955 INFO Included extra file "/opt/docker/etc/supervisor.d/dnsmasq.conf" during parsing
+2022-05-05 10:36:28,956 INFO Included extra file "/opt/docker/etc/supervisor.d/php-fpm.conf" during parsing
+2022-05-05 10:36:28,957 INFO Included extra file "/opt/docker/etc/supervisor.d/postfix.conf" during parsing
+2022-05-05 10:36:28,958 INFO Included extra file "/opt/docker/etc/supervisor.d/ssh.conf" during parsing
+2022-05-05 10:36:28,959 INFO Included extra file "/opt/docker/etc/supervisor.d/syslog.conf" during parsing
+2022-05-05 10:36:29,284 INFO RPC interface 'supervisor' initialized
+2022-05-05 10:36:29,311 INFO supervisord started with pid 84
+2022-05-05 10:36:30,315 INFO spawned: 'syslogd' with pid 87
+2022-05-05 10:36:30,318 INFO spawned: 'php-fpmd' with pid 88
+2022-05-05 10:36:30,321 INFO spawned: 'apached' with pid 89
+2022-05-05 10:36:30,327 INFO spawned: 'crond' with pid 90
+2022-05-05 10:36:30,331 INFO spawned: 'postfixd' with pid 91
+2022-05-05 10:36:30,335 INFO spawned: 'sshd' with pid 92
+2022-05-05 10:36:30,339 INFO success: php-fpmd entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2022-05-05 10:36:30,340 INFO success: apached entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2022-05-05 10:36:30,341 INFO success: crond entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2022-05-05 10:36:30,342 INFO success: postfixd entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2022-05-05 10:36:30,343 INFO success: sshd entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2022-05-05 10:36:31,976 INFO success: syslogd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
