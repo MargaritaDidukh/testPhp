@@ -8,6 +8,8 @@ Router::add('^category$', [App\Controllers\CategoryController::class, 'index']);
 Router::add('article', [App\Controllers\ArticleController::class, 'index']);
 
 Router::add('test', [didukh\framework\controllers\Controller::class, 'index']);
+Router::add('^category/save$', [App\Controllers\CategoryController::class, 'save']);
+Router::add('^category/delete$', [App\Controllers\CategoryController::class, 'delete']);
 //
 //Router::add('^$',[
 //    'action' => 'index',

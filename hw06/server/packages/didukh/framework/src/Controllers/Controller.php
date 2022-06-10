@@ -28,9 +28,18 @@ class Controller
         $this->route = $route;
         $this->view = $route[1];
     }
-    public function getView()
+//    public function getView()
+//    {
+//        $viewObj = new View($this->route, 'Category', $this->view);
+//        $viewObj->render($this->data);
+//    }
+    public function view(string $view, array $data = []): bool
     {
-        $viewObj = new View($this->route, 'Category', $this->view);
-        $viewObj->render($this->data);
+        $this->view = $view;
+
+        $viewObj = new View($this->route, $this->view);
+        $viewObj->render($data);
+        return true;
     }
+
 }

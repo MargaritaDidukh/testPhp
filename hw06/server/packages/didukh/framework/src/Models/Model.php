@@ -36,7 +36,7 @@ class Model
 //        return $this->pdo->query($sql);
 //    }
 
-    public function insertOne($array)
+    public function insertOne(array  $array): array
     {
         $table = htmlspecialchars($this->table);
         $key = implode(',', array_keys($array));
@@ -44,7 +44,7 @@ class Model
         $sql = "INSERT INTO  $table ($key) values($values)";
         return $this->pdo->query($sql);
     }
-    public function updateOne($array, $condition)
+    public function updateOne(array  $array, array  $condition): array
     {
         $table = htmlspecialchars($this->table);
         $res = '';
@@ -58,29 +58,29 @@ class Model
         $sql = "UPDATE $table SET $res WHERE $cond";
         return $this->pdo->query($sql);
     }
-    public function deleteOne($condition)
+    public function deleteOne( string $condit, $value): array
     {
         $table = htmlspecialchars($this->table);
-        foreach ($condition as $key => $value) {
-            $cond = $key . " = '" . $value . "'";
-        }
-        $sql = "DELETE FROM $table WHERE $cond";
+//        foreach ($condition as $key => $value) {
+//            $cond = $key . " = '" . $value . "'";
+//        }
+        $sql = "DELETE FROM $table WHERE $condit = $value ";
         return $this->pdo->query($sql);
     }
-    public function likeOne($param, $condition)
+    public function likeOne(string $param, string $condition): array
     {
         $table = htmlspecialchars($this->table);
         $sql ="SELECT * FROM $table WHERE $param LIKE '$condition'";
         return $this->pdo->query($sql);
     }
-    public function whereIn($param, $condition)
+    public function whereIn(string $param, array $condition): array
     {
         $table = htmlspecialchars($this->table);
         $condition = sprintf("'%s'", implode("','", $condition));
         $sql ="SELECT * FROM $table WHERE $param IN ($condition)";
         return $this->pdo->query($sql);
     }
-    public function orderBy($condition, $sort)
+    public function orderBy(array $condition, string $sort): array
     {
         $table = htmlspecialchars($this->table);
         if (count($condition) > 1) {
@@ -91,7 +91,7 @@ class Model
         $sql ="SELECT * FROM $table ORDER BY $cond $sort";
         return $this->pdo->query($sql);
     }
-    public function join($joinWith, $request, $kindJoin)
+    public function join(string $joinWith, string $request, string $kindJoin): array
     {
         $table = htmlspecialchars($this->table);
         $on = $table . '.' . $request . '=' . $joinWith . '.' . $request;

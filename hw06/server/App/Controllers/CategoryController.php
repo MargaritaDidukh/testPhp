@@ -4,21 +4,49 @@ namespace App\Controllers;
 
 use App\Models\CategoryModel;
 
-
 class CategoryController extends BaseController
 {
+//    public function index()
+//    {
+//        $categoryModel = new CategoryModel();
+//        $res = $categoryModel->findAll();
+//        return $this->view('category', 'category', 'index');
+//    }
     public function index()
     {
-        $categoryModel = new CategoryModel();
+        $categoryModel = new CategoryModel;
+
         $res = $categoryModel->findAll();
+        return $this->view('category/index', ['res' => $res]);
+//        return $this->view('category/index', ['id' => 33333333333]);
+    }
 
-//        echo '<pre>';
-//        print_r($res);
-//        echo '</pre>';
+    public function save()
+    {
+        try {
+            $categoryModel = new CategoryModel;
+            $categoryModel->insertOne(['title' => $_POST['title'], 'message' => $_POST['description']]);
+            $this->redirect('http://localhost:8181/category');
+        } catch (\Exception $exception) {
+            return 'ERORR!!!!!';
+        }
+    }
 
+    public function delete()
+    {
+        try {
+            $delModel = new CategoryModel;
+            if (isset($_POST['submit'])) {
+                if (!empty($_POST['data'])) {
+                    foreach ($_POST['data'] as $value) {
+                        $delModel->deleteOne('id', $value);
+                    }
+                }
+            }
 
-//return $this->getView('category', $this->layout, $this->view);
-        return $this->getView('category', 'category', 'index');
-//        return __CLASS__ . ' ' .__METHOD__;
+            $this->redirect('http://localhost:8181/category');
+        } catch (\Exception $exception) {
+            return 'ERORR!!!!!';
+        }
     }
 }

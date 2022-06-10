@@ -1,0 +1,25 @@
+{
+    "name": "didukh/message",
+    "homepage": "https://gitlab.com/MargoDidukh/message2",
+    "authors": [
+        {
+            "name": "MargaritaDidukh",
+            "email": "margartadidukh16@gmail.com"
+        }
+    ],
+    "require": {
+      "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "didukh\\Message\\": "src/"
+        }
+    },
+    "license": "proprietary",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "version": "1.0.0"
+}

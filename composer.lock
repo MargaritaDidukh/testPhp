@@ -4,8 +4,50 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "40d043fbb9d11750707373a4180debd8",
+    "content-hash": "ade973bb1f1680809793dbbd092bab7f",
     "packages": [
+        {
+            "name": "didukh/message",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:MargoDidukh/message2.git",
+                "reference": "98868c7934f082329b5cc32030cbcd563c2f0298"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/MargoDidukh%2Fmessage2/repository/archive.zip?sha=98868c7934f082329b5cc32030cbcd563c2f0298",
+                "reference": "98868c7934f082329b5cc32030cbcd563c2f0298",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "didukh\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "MargaritaDidukh",
+                    "email": "margartadidukh16@gmail.com"
+                }
+            ],
+            "homepage": "https://gitlab.com/MargoDidukh/message2",
+            "time": "2022-06-06T19:10:39+00:00"
+        },
         {
             "name": "squizlabs/php_codesniffer",
             "version": "3.6.2",
@@ -66,7 +108,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "didukh/message": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

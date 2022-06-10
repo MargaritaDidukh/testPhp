@@ -24,7 +24,7 @@ class DB
 
     }
 
-    public static function instance()
+    public static function instance(): DB
     {
         if (self::$instance === null){
             self::$instance = new self;
