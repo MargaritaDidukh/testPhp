@@ -13,14 +13,35 @@ use didukh\framework\Router;
 use Symfony\Component\Dotenv\Dotenv;
 $dotenv = new Dotenv();
 $dotenv->load(SERVER . '/.env');
-
-//dump($_ENV);
-//dd(343);
 require_once "../routes/web.php";
 Router::dispatch(URL);
 
+class Mail{
+    public function mail()
+    {
+        echo 'send';
+    }
+}
+class UserManager
+{
+    public $mailer;
+    public function __construct(Mail $mailer)
+    {
+        $this->mailer= $mailer;
+    }
 
+    public function create()
+    {
+        $this->mailer->mail();
+    }
+}
 
+$app = new DI\Container();
+$userManager = new UserManager(new Mail());
+$userManager->create();
+$app->get($userManager);
+
+//dd($app);
 
 //class Singleton
 //{
@@ -40,7 +61,7 @@ Router::dispatch(URL);
 //    }
 //}
 //
-//class Logger extends Singleton
+//class logger extends Singleton
 //{
 //    private $fp;
 //    protected function __construct()
@@ -62,7 +83,7 @@ Router::dispatch(URL);
 //    }
 //
 //}
-////Logger::getInstance();
+////logger::getInstance();
 //
-//Logger::log(123123);
+//logger::log(123123);
 

@@ -7,6 +7,12 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'didukh\\framework\\' => array($baseDir . '/packages/didukh/framework/src'),
+    'didukh\\Logger\\' => array($baseDir . '/packages/didukh/logger/src'),
     'Symfony\\Component\\Dotenv\\' => array($vendorDir . '/symfony/dotenv'),
+    'Psr\\Container\\' => array($vendorDir . '/psr/container/src'),
+    'PhpDocReader\\' => array($vendorDir . '/php-di/phpdoc-reader/src/PhpDocReader'),
+    'Laravel\\SerializableClosure\\' => array($vendorDir . '/laravel/serializable-closure/src'),
+    'Invoker\\' => array($vendorDir . '/php-di/invoker/src'),
+    'DI\\' => array($vendorDir . '/php-di/php-di/src'),
     'App\\' => array($baseDir . '/App'),
 );

@@ -6,14 +6,36 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit31ab654fc509df97db6ed7194ac8dd3b
 {
+    public static $files = array (
+        'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'd' => 
         array (
             'didukh\\framework\\' => 17,
+            'didukh\\Logger\\' => 14,
         ),
         'S' => 
         array (
             'Symfony\\Component\\Dotenv\\' => 25,
+        ),
+        'P' => 
+        array (
+            'Psr\\Container\\' => 14,
+            'PhpDocReader\\' => 13,
+        ),
+        'L' => 
+        array (
+            'Laravel\\SerializableClosure\\' => 28,
+        ),
+        'I' => 
+        array (
+            'Invoker\\' => 8,
+        ),
+        'D' => 
+        array (
+            'DI\\' => 3,
         ),
         'A' => 
         array (
@@ -26,9 +48,33 @@ class ComposerStaticInit31ab654fc509df97db6ed7194ac8dd3b
         array (
             0 => __DIR__ . '/../..' . '/packages/didukh/framework/src',
         ),
+        'didukh\\Logger\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/packages/didukh/logger/src',
+        ),
         'Symfony\\Component\\Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/dotenv',
+        ),
+        'Psr\\Container\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'PhpDocReader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/phpdoc-reader/src/PhpDocReader',
+        ),
+        'Laravel\\SerializableClosure\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
+        ),
+        'Invoker\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/invoker/src',
+        ),
+        'DI\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/php-di/php-di/src',
         ),
         'App\\' => 
         array (

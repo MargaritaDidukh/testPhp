@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Models\CategoryModel;
+use didukh\Logger\Logger;
+
 
 class CategoryController extends BaseController
 {
@@ -14,10 +16,13 @@ class CategoryController extends BaseController
 //    }
     public function index()
     {
-        $categoryModel = new CategoryModel;
 
-        $res = $categoryModel->findAll();
-        return $this->view('category/index', ['res' => $res]);
+        Logger::error('Hi margo');
+//        df('aaaaaa');
+//        $categoryModel = new CategoryModel;
+//
+//        $res = $categoryModel->findAll();
+//        return $this->view('category/index', ['res' => $res]);
 //        return $this->view('category/index', ['id' => 33333333333]);
     }
 
@@ -49,4 +54,12 @@ class CategoryController extends BaseController
             return 'ERORR!!!!!';
         }
     }
+
+//    public function store()
+//    {
+//        $m= new CategoryModel();
+//        $m->save($_POST);
+//    }
+
+
 }

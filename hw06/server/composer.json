@@ -8,12 +8,14 @@
     ],
     "require": {
         "squizlabs/php_codesniffer": "^3.6",
-        "symfony/dotenv": "^6.0"
+        "symfony/dotenv": "^6.0",
+        "php-di/php-di": "^6.4"
     },
     "autoload": {
         "psr-4": {
             "App\\": "App/",
-            "didukh\\framework\\": "packages/didukh/framework/src"
+            "didukh\\framework\\": "packages/didukh/framework/src",
+            "didukh\\Logger\\": "packages/didukh/logger/src"
         }
     }
 
