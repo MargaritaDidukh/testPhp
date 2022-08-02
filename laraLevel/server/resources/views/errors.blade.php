@@ -1,1 +1,3 @@
-<div style="color: red">{{$errorsMy}}</div>
+<div style="color:red;">
+    <p>{{ $error }}</p>
+</div>

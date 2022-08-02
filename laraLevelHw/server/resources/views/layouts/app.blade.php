@@ -23,7 +23,13 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('videos')}}">Перелік відео</a>
+                </li>   <li class="nav-item">
+                    <a class="nav-link" href="{{route('create')}}">Створити користувача</a>
                 </li>
+                </li>   <li class="nav-item">
+                    <a class="nav-link" href="{{route('createVideo')}}">Створити відео</a>
+                </li>
+
             </ul>
         </div>
     </div>

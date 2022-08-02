@@ -9,4 +9,9 @@
             <p class="card-text">  {{$video->description}}</p>
         </div>
     </div>
+    <form action="{{route('destroyVideo', $video->id)}}" method="post">
+        @csrf
+        @method('delete')
+        <button type="submit" class="btn btn-danger">delete video</button>
+    </form>
 @endsection

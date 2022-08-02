@@ -9,6 +9,7 @@
             {{$user->last_name}}
             <span class="fw-bold">{{$user->mobile}}</span>
             <span class="fw-semibold">{{$user->email}}</span>
+            <a href="{{route('showByIdUser',$user->id)}}" >page user</a>
         </li>
         @endforeach
     </ul>

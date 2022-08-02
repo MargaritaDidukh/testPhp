@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -40,9 +42,36 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'options' => 'array',
     ];
-    public function books()
+
+    public function getFirstnameAtribute(string $value)
     {
-        return $this->hasMany(Books::class);
+        return strtoupper($value);
+    }
+
+    public function getInfoAtribute($value)
+    {
+        return "$this->firstname $this->email";
+    }
+
+    public function setNameAtribute($value)
+    {
+        return $this->attributes['firstname'] = ucfirst($value);
+    }
+
+    public function videos(): HasMany
+    {
+        return $this->hasMany(Video::class);
+    }
+
+    public function books(): HasMany
+    {
+        return $this->hasMany(Book::class);
+    }
+
+    public function libraries()
+    {
+        return $this->belongsToMany(Library::class);
     }
 }

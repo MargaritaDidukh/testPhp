@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Books;
-use App\Models\User;
-use Database\Factories\BooksFactory;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
+use App\Models\Book;
+use App\Models\Video;
 
 class UserSeeder extends Seeder
 {
@@ -17,6 +16,9 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(3)->has(Books::factory(5))->create();
+        User::factory()->count(3)
+            ->has(Video::factory(3))
+            ->has(Book::factory(5))
+            ->create();
     }
 }

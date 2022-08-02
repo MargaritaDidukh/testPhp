@@ -2,53 +2,88 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\DB;
-use Mockery\Generator\Generator;
-use Psy\Util\Str;
+use App\Events\BookUpdate;
+use App\Repositories\BookRepository;
+use App\Repositories\UserRepository;
+use Exception;
+use Illuminate\Http\Request;
+use App\Models\Book;
 
 class BookController extends Controller
 {
-    public function books()
-    {
-//        $q3=DB::table('users')->where('name', '=', 'Andress')->where(function($query){
-//            $query->where('votes', '>', '100')->orWhere(function ($query){
-//                $query->where('name', 'Test')->where('votes', '<', '50');
-//            });
-//        })->get();
-//        dd(Str::replaceArray('?', $q3->getBindings(), $q3));
-       $books = DB::table('books')->
-           select('books.*', 'users.name as user_name')->
-       join('users', 'users.id', '=', 'books.user_id')->get();
+    private $bookRepository;
 
-        return view('books.list', ['books' => $books] );
+    public function __construct(BookRepository $bookRepository)
+    {
+        $this->bookRepository = $bookRepository;
+    }
+
+    public function list()
+    {
+        return view('books.list', ['books' => $this->bookRepository->list()]);
     }
 
     public function view($id)
     {
-        $books = $this->booksList();
-//         $id=1;
-        if (!$book = $books[$id] ?? null) {
+        if (!$book = $this->bookRepository->byId($id)) {
             abort(404);
         }
 
-        return $book['title'] . ' ' . $book['author'];
+        return view('books.book', ['book' => $book]);
     }
 
-    private function booksList()
+    public function create(UserRepository $userRepository)
     {
-        return [
-            1 => ['id' => 1, 'title' => 'Title 1', 'author' => 'Author 1'],
-            2 => ['id' => 2, 'title' => 'Title 2', 'author' => 'Author 2'],
-            3 => ['id' => 3, 'title' => 'Title 3', 'author' => 'Author 3'],
-        ];
+        return (view('books.create', ['users' => $userRepository->list()]));
     }
-        public function add(Generator $faker){
-            $user = DB::table('users')->first();
-        DB::table('books')->insert([
-            'user_id'=> $user->id,
-            'title' => $faker->sentence(2),
-            'description' =>$faker->text(20),
-        ]);
-        }
 
+    public function store(Request $request)
+    {
+        $data = $request->validate(
+            ['title' => ['required', 'max:255'],
+            'description' => ['nullable', 'max:255'],
+            'user_id' => ['required', 'exists:users,id']]
+        );
+
+        try {
+            $book = $this->bookRepository->create($data);
+        } catch (Exception $e) {
+            //
+        }
+        return redirect(route('books.view', ['id' => $book->id]));
+    }
+
+    public function update($id, UserRepository $userRepository)
+    {
+        if (!$book = $this->bookRepository->byId($id)) {
+            abort(404);
+        }
+        return (view('books.update', ['book' => $book, 'users' => $userRepository->list()]));
+    }
+
+    public function edit($id, Request $request)
+    {
+        $data = $request->validate(
+            ['title' => ['required', 'max:255'],
+            'description' => ['nullable', 'max:255'],
+            'user_id' => ['required', 'exists:users,id']]
+        );
+
+        if (!$book = $this->bookRepository->byId($id)) {
+            abort(404);
+        }
+        $book = $this->bookRepository->update($book, $data);
+        BookUpdate::dispatch($book);
+        return redirect(route('books.view', ['id' => $book->id]));
+    }
+
+    public function delete($id)
+    {
+        if (!$book = $this->bookRepository->byId($id)) {
+            abort(404);
+        }
+        $this->bookRepository->delete($book);
+
+        return redirect(route('books.list'));
+    }
 }
